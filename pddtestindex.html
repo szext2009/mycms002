@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{title}</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<!--  <meta name="viewport" content="width=device-width; minimum-scale=1.0; maximum-scale=1.0; target-densityDpi=device-dpi; user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-touch-fullscreen" content="yes"/>
+  <link rel="stylesheet" href="sencha-touch.css" type="text/css">
+   <script type="text/javascript" src="sencha-touch.js"></script>
+   <style>
+     a:link, a:visited, a:hover
+        {
+            text-decoration: none;
+            color: #000; 
+        }
+        a:hover
+        {
+            text-decoration: underline; 
+            color: #C80000;
+        }
+		.salepropsbox
+        {
+            display:block; 
+        }
+	#haveselectedpropids{
+	        display:none;
+	}
+	.haveselectedprops{
+	       font-weight:bold;
+	} 
+   .selectpropbd{
+	        display:block; 
+			line-height:29px;
+	} 
+	
+.propcatename{
+    font-weight:bold;
+	}
+	
+.propvuename{
+	        border: 1px solid #c1c1c1;			
+            line-height: 29px;
+            margin:3px;
+	}
+	
+ #salepropslist a{
+	color:#000;
+	text-decoration:none;
+	}
+	
+#salepropslist a:hover{
+	background-color:#C80000;
+	}
+
+.bgColor{
+	        border:2px solid #FF6701;
+			line-height: 29px;
+            margin:3px; 
+	}
+   .gocheckout 
+        {
+            display:none; 
+        }
+     .addcart
+        {
+           display:none; 
+        }  
+	.clearfloat {clear:both;height:0;font-size: 1px;line-height: 0px;} 
+	.categories-list{margin:auto 0;text-align:center;}
+	.maincate{padding:0.8em;text-align:center;}
+	.detailsmallpics{margin-right:0.8em;margin-top:0.5em;text-align:center;}
+	.detailsmallpics img{width:59px;height:60px;-webkit-border-radius:0.5em;border:1;border-radius:0.5em;}
+	.x-list-item{border-top:1px solid white;}
+	.x-list-item.product{font-size:0.9em;line-height:1.4em}
+	.x-list-item.product .avatar{background-position:center center;-webkit-border-radius:0.5em;float:left;border:0;border-radius:0.5em;width:55px;height:55px;background-size:57px auto}
+	.x-list-item.product h3{font-weight:bold;margin-left:70px}
+	.x-list-item.product h4{color:#999;margin-left:70px}
+	.newsdetail{padding:0.9em;background:#fff}
+	.newsdetail h3{font-size:1.2em;margin-bottom:.1em}
+	.newsdetail h3 small{color:#d40e3f}
+	.newsdetail h4{font-size:0.9em;color:#999;margin-bottom:.5em}
+	.newsdetail p{font-size:1em;line-height:1.5em}
+    .shareqcode{margin-left:10px;float:left;text-align:left;}
+	table{border-collapse:collapse;font-size:12px;line-height:40px;text-align:center; margin:0 auto}
+    table tr td{border:1px #999 solid; padding:5px;}
+    table .header{background:#E1E1E1}
+    table .header:hover{text-decoration:none}
+    table tr{background:#EFEFEF}
+    table tr:hover{text-decoration:underline}
+	/* ϵͳͨ?ù???ģ????????Ʒ??ϸҳ?濪ʼ */
+.prodcontent{overflow:hidden; zoom:1; line-height:25px;font-size:1em; display:inline;text-align:left;}
+.prodcontent h1 {margin-bottom:15px;font-size:18px;font-weight:bold;text-align:left; line-height:130%; border-bottom:1px solid #eee;}
+.prodpics{float:left;}
+.prodbase{margin-left:10px;float:left;text-align:left;}
+.prodbase ul{}
+.prodbase li{line-height:25px;}
+.prodbase span {height:25px; color:#999; text-align:left; border-bottom:1px solid #eee;}
+.prodbase span a {color:#777;} 
+.proddetail{padding:10px;border-top:1px solid #eee;line-height:25px;font-size:1em;text-align:left} 
+.proddetail p {font-size:1em;line-height:25px;}
+/* ϵͳͨ?ù???ģ????????Ʒ??ϸҳ?????? */
+
+	/* ϵͳͨ?ù???ģ??????ͼƬ??ϸҳ?濪ʼ */
+.picscontent{overflow:hidden; zoom:1; line-height:25px;font-size:1em; display:inline;text-align:left;}
+.picscontent h1 {margin-bottom:15px;font-size:18px;font-weight:bold;text-align:left; line-height:130%; border-bottom:1px solid #eee;}
+.picspics{float:left;}
+.picsbase{margin-left:10px;float:left;text-align:left;}
+.picsbase ul{}
+.picsbase li{line-height:25px;}
+.picsbase span {height:25px; color:#999; text-align:left; border-bottom:1px solid #eee;}
+.picsbase span a {color:#777;} 
+.picsdetail{padding:10px;border-top:1px solid #eee;line-height:25px;font-size:1em;text-align:left} 
+.picsdetail p {font-size:1em;line-height:25px;}
+/* ϵͳͨ?ù???ģ??????ͼƬ??ϸҳ?????? */
+
+
+/* ϵͳͨ?ù???ģ????????????ϸҳ?濪ʼ */
+.downcontent{overflow:hidden; zoom:1; line-height:25px;font-size:1em; display:inline;text-align:left;}
+.downcontent h1 {margin-bottom:15px;font-size:18px;font-weight:bold;text-align:left; line-height:130%; border-bottom:1px solid #eee;}
+.downpics{width:200px;float:left;}
+.downbase{margin-left:10px;float:left;text-align:left;width:242px;}
+.downbase ul{}
+.downbase li{line-height:25px;}
+.downbase span {height:25px; color:#999; text-align:left; border-bottom:1px solid #eee;}
+.downbase span a {color:#777;} 
+.downdetail{padding-top:10px;border-top:1px solid #eee;line-height:25px;font-size:1em;text-align:left} 
+.downdetail p {font-size:1em;line-height:25px;}
+/* ϵͳͨ?ù???ģ????????????ϸҳ?????? */
+	</style>	 
+	<script type="text/javascript" charset="utf-8">
+	 
+function salepropjiazai()
+{
+	var root = document.getElementById("salepropslist").getElementsByTagName("div"); 
+	for(var i = 0; i < root.length;i++)
+	{
+		var tagAs = root[i].getElementsByTagName("a"); 
+		tagAs[0].className = 'bgColor';
+	}
+}
+
+ 
+function salepropClick(event)
+{		
+	var tag = event.srcElement || event.target; 
+	var father = tag.parentNode; 
+	while(father.nodeName != "DIV") 
+	{
+		father = father.parentNode;
+	}
+	var fatherID = father.id; 
+	
+	 
+	for(var i = 0; i < document.getElementById(fatherID).getElementsByTagName("a").length;i++)
+	{
+		document.getElementById(fatherID).getElementsByTagName("a")[i].className = "";
+	} 
+ 
+	tag.className = 'bgColor';
+     
+    document.getElementById("haveselectedprops").innerHTML=getkyselectfe()[0];
+	document.getElementById("haveselectedpropids").innerHTML=getkyselectfe()[1];
+ 
+}
+
+ 
+function getkyselectfe()
+{
+	var propsstr = "",propsids=""; 
+	var root = document.getElementById("salepropslist").getElementsByTagName("a"); 
+	for(var i = 0; i < root.length;i++)
+	{
+		if(root[i].className == 'bgColor')
+		{
+			propsstr += root[i].innerHTML+"_"+root[i].getAttribute("addpricevalue")+"-";
+			propsids = Number(propsids)+Number(root[i].getAttribute("addpricevalue"));
+		}
+	}
+	  var backvalenames=new Array(propsstr,propsids);
+	return backvalenames;
+}
+//salepropjiazai();
+
+function getnewmusicvods(inputData)
+        { 
+		  if(inputData)
+           {
+			var textArray1= new Array();  
+			textArray1=inputData.split(".");  
+            if (textArray1.Length > 2)
+            {
+                return inputData;
+            }
+            else
+            {
+                return dataurl+inputData;
+            }
+		  }
+		  else
+		  {
+		     return inputData;
+		  }
+
+        }
+
+function getnewpic(oldstr,flag)
+{
+if(oldstr)
+{
+var newfilename=""; 
+var Extname=oldstr.substring(oldstr.lastIndexOf("."));
+var Filename=oldstr.substring(oldstr.lastIndexOf("/") + 1);
+var Filenamenoext=Filename.replace(Extname,"");
+newfilename=oldstr.replace(Filename,Filenamenoext+"_"+flag+Extname); 
+
+ if(oldstr.indexOf("http://")==-1)
+	{
+	newfilename=dataurl+newfilename;
+    
+    }
+	 return  newfilename;
+}
+else
+{
+return  oldstr;
+  }
+} 
+	 title='{title}';
+	datalan='{lan}';
+    datadir= '/';
+	 datausername= '';
+    dataurl= 'http://{url}';  
+	 klan={};
+	 var carouselitems;
+     kylan= {
+	 setk : function (name,value){
+	 	localStorage.setItem(name,value)
+      },
+	 getk : function(name){
+	 	return localStorage.getItem(name)
+	            }
+          }
+     if(!kylan.getk('dlan'))
+	 {
+	  kylan.setk('dlan',datalan);
+      }
+	  if(!kylan.getk('title'))
+	 {
+	  kylan.setk('title',title);
+      }
+
+    datalan=kylan.getk('dlan');
+    title=kylan.getk('title');  
+    kylan.setk('orderaddflag','0');     
+     if(!kylan.getk('klan'))
+		  {  
+			 var xhr = new XMLHttpRequest();
+           // xhr.open('GET', dataurl+'/Language/applan/'+datalan+'.txt', false);
+		    xhr.open('GET', 'applan/'+datalan+'.txt', false);
+            xhr.send(null);
+			 kylan.setk('klan',xhr.responseText); 
+		     klan=Ext.JSON.decode(kylan.getk('klan'));	
+		    document.write("<script type='text/javascript' src='app.js'><\/script>"); 
+			
+		  }
+		  else
+		  {
+           klan=Ext.JSON.decode(kylan.getk('klan'));
+		   document.write("<script type='text/javascript' src='app.js'><\/script>"); 
+	 } 
+    </script>
+</head>
+<body></body>
+</html>
